@@ -14,7 +14,7 @@ import java.io.RandomAccessFile;
  */
 public class DoctoresD {
       RandomAccessFile Doctores,rcs;
-      public final static long DOCTORES_OFFSET=0;
+      public final static long DOCTORES_OFFSET = 0;
     public DoctoresD(){
   
         try{
@@ -23,7 +23,6 @@ public class DoctoresD {
             initCodes();
         }catch(IOException e){
     }
-    
         
         
 }

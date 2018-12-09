@@ -328,9 +328,6 @@ public class AgregarDoctores extends javax.swing.JFrame {
         
         }
         
-        
-        
-        JOptionPane.showMessageDialog(this, "Doctor agregdado exitosamente!!");
 
         Doctores DC = new Doctores();
         DC.setVisible(true);
