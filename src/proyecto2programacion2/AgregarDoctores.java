@@ -29,10 +29,7 @@ public class AgregarDoctores extends javax.swing.JFrame {
         Icon fondo = new ImageIcon(doc.getImage().getScaledInstance(doctores.getWidth(), doctores.getHeight(), Image.SCALE_DEFAULT));
         doctores.setIcon(fondo);
         
-        int codigoS = 0;
-        codigoS ++;
-        String Secuencial = String.valueOf(codigoS);
-        CodigoDoc. setText(Secuencial);
+        
     }
 
     /**
@@ -49,7 +46,6 @@ public class AgregarDoctores extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -59,7 +55,6 @@ public class AgregarDoctores extends javax.swing.JFrame {
         NombreDoc = new javax.swing.JTextField();
         EmailDoc = new javax.swing.JTextField();
         NumeroTelDoc = new javax.swing.JTextField();
-        CodigoDoc = new javax.swing.JTextField();
         Honorarios = new javax.swing.JTextField();
         Confirmar = new javax.swing.JButton();
         MenuPrincipal = new javax.swing.JButton();
@@ -100,10 +95,6 @@ public class AgregarDoctores extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel3.setText("Codigo del Doctor:");
-
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 204));
         jLabel4.setText("Nombre Completo:");
@@ -140,11 +131,6 @@ public class AgregarDoctores extends javax.swing.JFrame {
         NumeroTelDoc.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         NumeroTelDoc.setForeground(new java.awt.Color(255, 255, 255));
 
-        CodigoDoc.setEditable(false);
-        CodigoDoc.setBackground(new java.awt.Color(0, 0, 0));
-        CodigoDoc.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        CodigoDoc.setForeground(new java.awt.Color(255, 255, 255));
-
         Honorarios.setBackground(new java.awt.Color(0, 0, 0));
         Honorarios.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         Honorarios.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,7 +148,7 @@ public class AgregarDoctores extends javax.swing.JFrame {
         MenuPrincipal.setBackground(new java.awt.Color(204, 0, 0));
         MenuPrincipal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
-        MenuPrincipal.setText("Menu Principal");
+        MenuPrincipal.setText("Regresar");
         MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuPrincipalActionPerformed(evt);
@@ -185,16 +171,12 @@ public class AgregarDoctores extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Especialidad, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(NumeroTelDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(197, 197, 197)
-                        .addComponent(CodigoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel7)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -211,13 +193,12 @@ public class AgregarDoctores extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(CodigoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(108, 108, 108)
+                        .addComponent(doctores, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -237,12 +218,8 @@ public class AgregarDoctores extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Honorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(doctores, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)))
+                            .addComponent(jLabel8))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MenuPrincipal)
                     .addComponent(Confirmar))
@@ -270,11 +247,11 @@ public class AgregarDoctores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
-        Menu m = new Menu();
-        m.setVisible(true);
-        m.pack();
-        m.setLocationRelativeTo(null);
-        m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Doctores D = new Doctores();
+        D.setVisible(true);
+        D.pack();
+        D.setLocationRelativeTo(null);
+        D.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_MenuPrincipalActionPerformed
 
@@ -317,6 +294,15 @@ public class AgregarDoctores extends javax.swing.JFrame {
                 EmailDoc.setText("");
                 NumeroTelDoc.setText("");
                 Honorarios.setText("");
+                
+                Doctores DC = new Doctores();
+                DC.setVisible(true);
+                DC.pack();
+                DC.setLocationRelativeTo(null);
+                DC.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+                
+                
             }
             else{
                 JOptionPane.showMessageDialog(null, "Este email ya fue usado",   "Error ",JOptionPane.WARNING_MESSAGE);
@@ -329,12 +315,7 @@ public class AgregarDoctores extends javax.swing.JFrame {
         }
         
 
-        Doctores DC = new Doctores();
-        DC.setVisible(true);
-        DC.pack();
-        DC.setLocationRelativeTo(null);
-        DC.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+        
 
     }//GEN-LAST:event_ConfirmarActionPerformed
 
@@ -374,7 +355,6 @@ public class AgregarDoctores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CodigoDoc;
     private javax.swing.JButton Confirmar;
     private javax.swing.JTextField EmailDoc;
     private javax.swing.JComboBox<String> Especialidad;
@@ -385,7 +365,6 @@ public class AgregarDoctores extends javax.swing.JFrame {
     private javax.swing.JLabel doctores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

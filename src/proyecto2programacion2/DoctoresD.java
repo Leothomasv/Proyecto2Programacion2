@@ -5,21 +5,23 @@
  */
 package proyecto2programacion2;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
 /**
  *
- * @author alberto jose lopez
+ * 
  */
 public class DoctoresD {
       RandomAccessFile Doctores,rcs;
-      public final static long DOCTORES_OFFSET = 0;
+      public final static long SONG_OFFSET = 0;
     public DoctoresD(){
   
         try{
-            rcs = new RandomAccessFile("Archivos/Doctores/CodigosDoctores.med","rw");
-            Doctores=new RandomAccessFile("Archivos/Doctores/Doctores.med","rw");
+            new File("Doctores").mkdirs();
+            rcs = new RandomAccessFile("Doctores/CodigosDoctores.med","rw");
+            Doctores = new RandomAccessFile("Doctores/Doctores.med","rw");
             initCodes();
         }catch(IOException e){
     }
@@ -57,7 +59,7 @@ public class DoctoresD {
     public void write(String Nombre, String Email, int telefono,String especialidad, double honorarios) throws IOException{
         Doctores.seek(getFinal());
         
-        int cod = getCode(DOCTORES_OFFSET);
+        int cod = getCode(SONG_OFFSET);
         Doctores.writeInt(cod);
         Doctores.writeUTF(Nombre);
         Doctores.writeUTF(Email);
