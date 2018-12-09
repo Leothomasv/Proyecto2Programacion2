@@ -6,9 +6,13 @@
 package proyecto2programacion2;
 
 import java.awt.Image;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,17 +20,25 @@ import javax.swing.JFrame;
  */
 public class Login extends javax.swing.JFrame {
 
+    static Users us = new Users();
+
     /**
      * Creates new form Login
      */
-    public Login() {
+    public Login() throws IOException {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
         ImageIcon user = new ImageIcon(getClass().getResource("/Imagenes/pharmacy.png"));
         Icon fondo5 = new ImageIcon(user.getImage().getScaledInstance(hospital1.getWidth(), hospital1.getHeight(), Image.SCALE_DEFAULT));
         hospital1.setIcon(fondo5);
-        
+
+        // User para entrar 
+        if (us.findeUser("admin","123")== 0) {
+            us.write("Leonel", "admin", "123");
+            //System.out.println("User: admin PassWord: 123");
+        }
+
     }
 
     /**
@@ -166,12 +178,33 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarActionPerformed
-        Menu m = new Menu();
-            m.setVisible(true);
-            m.pack();
-            m.setLocationRelativeTo(null);
-            m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-           this.dispose();
+
+        String usuario = UserNameTXT.getText();
+        String contrasena = PassWordTXT.getText();
+
+        try {
+            if (us.findeUser(usuario, contrasena)== 1) {
+                JOptionPane.showMessageDialog(null, "Bienvenido " + UserNameTXT.getText() + " Al Hospital Leito", "",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+                Menu m = new Menu();
+                m.setVisible(true);
+                m.pack();
+                m.setLocationRelativeTo(null);
+                m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario y/o Contraseña incorrectos", "Error",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error en escritura", "Error",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
     }//GEN-LAST:event_EntrarActionPerformed
 
     /**
@@ -204,7 +237,11 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                try {
+                    new Login().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

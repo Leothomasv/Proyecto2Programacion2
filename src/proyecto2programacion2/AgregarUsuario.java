@@ -6,9 +6,11 @@
 package proyecto2programacion2;
 
 import java.awt.Image;
+import java.io.IOException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,7 +49,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
         NombreCompleto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         PassWord = new javax.swing.JPasswordField();
-        ConfirmarCita = new javax.swing.JToggleButton();
+        Confirmar = new javax.swing.JToggleButton();
         VolverAtras = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         usuario = new javax.swing.JLabel();
@@ -102,14 +104,15 @@ public class AgregarUsuario extends javax.swing.JFrame {
 
         PassWord.setBackground(new java.awt.Color(0, 0, 0));
         PassWord.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        PassWord.setForeground(new java.awt.Color(255, 255, 255));
 
-        ConfirmarCita.setBackground(new java.awt.Color(0, 255, 0));
-        ConfirmarCita.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        ConfirmarCita.setForeground(new java.awt.Color(255, 255, 255));
-        ConfirmarCita.setText("Confirmar");
-        ConfirmarCita.addActionListener(new java.awt.event.ActionListener() {
+        Confirmar.setBackground(new java.awt.Color(0, 255, 0));
+        Confirmar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        Confirmar.setForeground(new java.awt.Color(255, 255, 255));
+        Confirmar.setText("Confirmar");
+        Confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConfirmarCitaActionPerformed(evt);
+                ConfirmarActionPerformed(evt);
             }
         });
 
@@ -142,7 +145,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(ConfirmarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(VolverAtras)
                 .addGap(71, 71, 71))
@@ -164,7 +167,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
                     .addComponent(PassWord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(92, 92, 92)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ConfirmarCita)
+                    .addComponent(Confirmar)
                     .addComponent(VolverAtras))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -210,14 +213,52 @@ public class AgregarUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ConfirmarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarCitaActionPerformed
-        Usuarios U = new Usuarios();
-        U.setVisible(true);
-        U.pack();
-        U.setLocationRelativeTo(null);
-        U.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-    }//GEN-LAST:event_ConfirmarCitaActionPerformed
+    private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
+         
+         String nombre = NombreCompleto.getText();
+         String usuario= UserName.getText();
+         String contraseña= PassWord.getText();
+      
+
+        Users  users  = new Users();
+        
+         String _nombre = NombreCompleto.getText().trim();
+        if(_nombre.isEmpty()){
+        JOptionPane.showMessageDialog(null, "Ingrese el nombre completo",   "Error ",JOptionPane.WARNING_MESSAGE);
+        return;
+        }
+        String _usuario = UserName.getText().trim();
+        if(_usuario.isEmpty()){
+        JOptionPane.showMessageDialog(null, "Ingrese el nombre de usuario",   "Error ",JOptionPane.WARNING_MESSAGE);
+        return;
+        }
+        String _Contrasena = PassWord.getText().trim();
+        if(_Contrasena.isEmpty()){
+        JOptionPane.showMessageDialog(null, "Ingrese el una contraseña",   "Error ",JOptionPane.WARNING_MESSAGE);
+        return;
+        }
+        
+        try {
+            if (users.findUserUsado(usuario, contraseña)) {
+                JOptionPane.showMessageDialog(null, "Usuario ya esta tomado, intente con otro");
+            }
+            else{
+                users.write(nombre, usuario, contraseña);
+                JOptionPane.showMessageDialog(null, "Usuario creado");
+                
+                Usuarios U = new Usuarios();
+                U.setVisible(true);
+                U.pack();
+                U.setLocationRelativeTo(null);
+                U.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+
+        }
+        catch (IOException ex) {
+
+        }
+    }//GEN-LAST:event_ConfirmarActionPerformed
 
     private void VolverAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverAtrasActionPerformed
         Pacientes P = new Pacientes();
@@ -264,7 +305,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton ConfirmarCita;
+    private javax.swing.JToggleButton Confirmar;
     private javax.swing.JTextField NombreCompleto;
     private javax.swing.JPasswordField PassWord;
     private javax.swing.JTextField UserName;
