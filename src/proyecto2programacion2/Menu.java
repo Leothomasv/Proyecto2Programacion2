@@ -6,6 +6,9 @@
 package proyecto2programacion2;
 
 import java.awt.Image;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -233,13 +236,19 @@ public class Menu extends javax.swing.JFrame {
     private void LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutActionPerformed
        
         JOptionPane.showMessageDialog(this, "Gracias por haber usado el servicio del Hospital Leito.");
-        
-        Login LG = new Login();
+        Login LG;
+        try {
+            LG = new Login();
             LG.setVisible(true);
             LG.pack();
             LG.setLocationRelativeTo(null);
             LG.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            this.dispose();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
            
     }//GEN-LAST:event_LogOutActionPerformed
 

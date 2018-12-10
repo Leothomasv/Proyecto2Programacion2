@@ -219,7 +219,7 @@ public class Mantenimientos extends javax.swing.JFrame {
     }//GEN-LAST:event_PacientesActionPerformed
 
     private void UsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuariosActionPerformed
-        Usuarios U = new Usuarios();
+        UsuariosForm U = new UsuariosForm();
             U.setVisible(true);
             U.pack();
             U.setLocationRelativeTo(null);

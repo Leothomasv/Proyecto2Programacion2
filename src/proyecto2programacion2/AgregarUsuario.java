@@ -7,6 +7,7 @@ package proyecto2programacion2;
 
 import java.awt.Image;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -17,13 +18,18 @@ import javax.swing.JOptionPane;
  * @author Leonel Thomas
  */
 public class AgregarUsuario extends javax.swing.JFrame {
-
+static RandomAccessFile raf;
     /**
      * Creates new form AgregarUsuario
      */
     public AgregarUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+         try{
+        raf = new RandomAccessFile("Usuarios/users.med","rw");
+        }catch(Exception e){
+        }
         
         ImageIcon users = new ImageIcon(getClass().getResource("/Imagenes/user.png"));
         Icon fondo = new ImageIcon(users.getImage().getScaledInstance(usuario.getWidth(), usuario.getHeight(), Image.SCALE_DEFAULT));
@@ -214,13 +220,7 @@ public class AgregarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarActionPerformed
-         
-         String nombre = NombreCompleto.getText();
-         String usuario= UserName.getText();
-         String contraseña= PassWord.getText();
-      
-
-        Users  users  = new Users();
+          UsuariosDatos users  = new UsuariosDatos();
         
          String _nombre = NombreCompleto.getText().trim();
         if(_nombre.isEmpty()){
@@ -232,21 +232,24 @@ public class AgregarUsuario extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Ingrese el nombre de usuario",   "Error ",JOptionPane.WARNING_MESSAGE);
         return;
         }
-        String _Contrasena = PassWord.getText().trim();
-        if(_Contrasena.isEmpty()){
+        String _contrasena = PassWord.getText().trim();
+        if(_contrasena.isEmpty()){
         JOptionPane.showMessageDialog(null, "Ingrese el una contraseña",   "Error ",JOptionPane.WARNING_MESSAGE);
         return;
         }
         
         try {
-            if (users.findUserUsado(usuario, contraseña)) {
+            if (users.VerificarUsuario(_usuario)) {
                 JOptionPane.showMessageDialog(null, "Usuario ya esta tomado, intente con otro");
+                NombreCompleto.setText("");
+                UserName.setText("");
+                PassWord.setText("");
             }
             else{
-                users.write(nombre, usuario, contraseña);
+                users.write(_nombre, _usuario, _contrasena);
                 JOptionPane.showMessageDialog(null, "Usuario creado");
                 
-                Usuarios U = new Usuarios();
+                UsuariosForm U = new UsuariosForm();
                 U.setVisible(true);
                 U.pack();
                 U.setLocationRelativeTo(null);

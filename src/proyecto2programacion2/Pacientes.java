@@ -5,6 +5,9 @@
  */
 package proyecto2programacion2;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -16,6 +19,10 @@ public class Pacientes extends javax.swing.JFrame {
     public Pacientes() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        ImageIcon P = new ImageIcon(getClass().getResource("/Imagenes/Paciente.png"));
+        Icon fondo = new ImageIcon(P.getImage().getScaledInstance(PA.getWidth(), PA.getHeight(), Image.SCALE_DEFAULT));
+        PA.setIcon(fondo);
     }
 
     /**
@@ -34,10 +41,12 @@ public class Pacientes extends javax.swing.JFrame {
         InfoPaciente = new javax.swing.JButton();
         AgregarPaciente = new javax.swing.JButton();
         VolverAtras = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        PA = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -50,7 +59,7 @@ public class Pacientes extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -66,11 +75,21 @@ public class Pacientes extends javax.swing.JFrame {
         ListaPacientes.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ListaPacientes.setForeground(new java.awt.Color(255, 255, 255));
         ListaPacientes.setText("Listados de Pacientes");
+        ListaPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaPacientesActionPerformed(evt);
+            }
+        });
 
         InfoPaciente.setBackground(new java.awt.Color(0, 0, 204));
         InfoPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         InfoPaciente.setForeground(new java.awt.Color(255, 255, 255));
         InfoPaciente.setText("Ver informacion del paciente");
+        InfoPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoPacienteActionPerformed(evt);
+            }
+        });
 
         AgregarPaciente.setBackground(new java.awt.Color(0, 0, 204));
         AgregarPaciente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -123,19 +142,42 @@ public class Pacientes extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
+        jPanel3.setBackground(new java.awt.Color(0, 102, 153));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(PA, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(PA, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -158,6 +200,26 @@ public class Pacientes extends javax.swing.JFrame {
             AP.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            this.dispose();
     }//GEN-LAST:event_AgregarPacienteActionPerformed
+
+    private void ListaPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaPacientesActionPerformed
+        // TODO add your handling code here:
+         ListadoPacientes LP = new ListadoPacientes();
+            LP.setVisible(true);
+            LP.pack();
+            LP.setLocationRelativeTo(null);
+            LP.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           this.dispose();
+    }//GEN-LAST:event_ListaPacientesActionPerformed
+
+    private void InfoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPacienteActionPerformed
+        // TODO add your handling code here:
+         InformacionPaciente IP = new InformacionPaciente();
+            IP.setVisible(true);
+            IP.pack();
+            IP.setLocationRelativeTo(null);
+            IP.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           this.dispose();
+    }//GEN-LAST:event_InfoPacienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,9 +260,11 @@ public class Pacientes extends javax.swing.JFrame {
     private javax.swing.JButton AgregarPaciente;
     private javax.swing.JButton InfoPaciente;
     private javax.swing.JButton ListaPacientes;
+    private javax.swing.JLabel PA;
     private javax.swing.JButton VolverAtras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
-    static Users us = new Users();
+    static UsuariosDatos us = new UsuariosDatos();
 
     /**
      * Creates new form Login
@@ -34,9 +34,9 @@ public class Login extends javax.swing.JFrame {
         hospital1.setIcon(fondo5);
 
         // User para entrar 
-        if (us.findeUser("admin","123")== 0) {
+        if (us.VerificarUsuario("admin")) {
             us.write("Leonel", "admin", "123");
-            //System.out.println("User: admin PassWord: 123");
+            System.out.println("User: admin PassWord: 123");
         }
 
     }
@@ -183,7 +183,7 @@ public class Login extends javax.swing.JFrame {
         String contrasena = PassWordTXT.getText();
 
         try {
-            if (us.findeUser(usuario, contrasena)== 1) {
+            if (us.Verificar(usuario, contrasena)) {
                 JOptionPane.showMessageDialog(null, "Bienvenido " + UserNameTXT.getText() + " Al Hospital Leito", "",
                         JOptionPane.INFORMATION_MESSAGE);
 

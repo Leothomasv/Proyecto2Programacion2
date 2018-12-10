@@ -19,9 +19,8 @@ public class DoctoresD {
     public DoctoresD(){
   
         try{
-            new File("Doctores").mkdirs();
-            rcs = new RandomAccessFile("Doctores/CodigosDoctores.med","rw");
-            Doctores = new RandomAccessFile("Doctores/Doctores.med","rw");
+            rcs = new RandomAccessFile("Archivos/Doctores/CodigosDoctores.med","rw");
+            Doctores = new RandomAccessFile("Archivos/Doctores/Doctores.med","rw");
             initCodes();
         }catch(IOException e){
     }
