@@ -5,7 +5,9 @@
  */
 package proyecto2programacion2;
 
+import java.io.IOException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,7 +40,7 @@ public class CancelarCita extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         CodigoCita = new javax.swing.JTextField();
         VolverAtras = new javax.swing.JButton();
-        CancelarCita = new javax.swing.JToggleButton();
+        CancelarCita = new javax.swing.JButton();
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 204));
@@ -49,8 +51,9 @@ public class CancelarCita extends javax.swing.JFrame {
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 153));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,6 +76,9 @@ public class CancelarCita extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 490, 70);
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -93,7 +99,7 @@ public class CancelarCita extends javax.swing.JFrame {
             }
         });
 
-        CancelarCita.setBackground(new java.awt.Color(0, 255, 0));
+        CancelarCita.setBackground(new java.awt.Color(51, 204, 0));
         CancelarCita.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         CancelarCita.setForeground(new java.awt.Color(255, 255, 255));
         CancelarCita.setText("Cancelar Cita");
@@ -108,53 +114,39 @@ public class CancelarCita extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addComponent(CodigoCita, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 52, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(197, 197, 197)
-                                .addComponent(CodigoCita, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(79, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(CancelarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(210, 210, 210))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(VolverAtras)
-                                .addGap(19, 19, 19))))))
+                        .addGap(185, 185, 185)
+                        .addComponent(VolverAtras))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(CancelarCita, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addComponent(CodigoCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                .addGap(58, 58, 58)
                 .addComponent(CancelarCita)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
                 .addComponent(VolverAtras)
-                .addGap(64, 64, 64))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 70, 490, 280);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -169,12 +161,36 @@ public class CancelarCita extends javax.swing.JFrame {
     }//GEN-LAST:event_VolverAtrasActionPerformed
 
     private void CancelarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarCitaActionPerformed
-        Citas C = new Citas();
-        C.setVisible(true);
-        C.pack();
-        C.setLocationRelativeTo(null);
-        C.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+        CitasD cd = new CitasD();
+
+        String cod = CodigoCita.getText();
+        if(cod.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un coddgo de cita",   "Error ",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        try{
+            int code = Integer.parseInt(cod);
+            if(cd.findCita(code)){
+                cd.CancelarCita(WIDTH);
+                CodigoCita.setText("");
+                JOptionPane.showMessageDialog(null, "Cita cancelada con exito");
+                
+                Citas C = new Citas();
+                C.setVisible(true);
+                C.pack();
+                C.setLocationRelativeTo(null);
+                C.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                this.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Codigo no valido ",   "Error",JOptionPane.WARNING_MESSAGE);
+            }
+        }catch(IOException e){
+            JOptionPane.showMessageDialog(null, "Error de escritura");
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Debe ingresar un numero en el codigo de cita",   "Error ",JOptionPane.WARNING_MESSAGE);
+        }
+
     }//GEN-LAST:event_CancelarCitaActionPerformed
 
     /**
@@ -214,7 +230,7 @@ public class CancelarCita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton CancelarCita;
+    private javax.swing.JButton CancelarCita;
     private javax.swing.JTextField CodigoCita;
     private javax.swing.JButton VolverAtras;
     private javax.swing.JLabel jLabel1;

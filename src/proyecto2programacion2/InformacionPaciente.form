@@ -180,8 +180,8 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="Nombre" alignment="1" min="-2" pref="157" max="-2" attributes="0"/>
                               <Component id="Email" alignment="1" min="-2" pref="157" max="-2" attributes="0"/>
-                              <Component id="Numero" alignment="1" min="-2" pref="157" max="-2" attributes="0"/>
                               <Component id="Fecha" alignment="1" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="Numero" alignment="1" min="-2" pref="147" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>

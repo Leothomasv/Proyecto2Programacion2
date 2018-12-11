@@ -39,7 +39,7 @@ public class ListadoPacientes extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaPacientes = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        Imprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -124,13 +124,13 @@ public class ListadoPacientes extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TablaPacientes);
 
-        jButton1.setBackground(new java.awt.Color(51, 204, 0));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Imprimr");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Imprimir.setBackground(new java.awt.Color(51, 204, 0));
+        Imprimir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Imprimir.setForeground(new java.awt.Color(255, 255, 255));
+        Imprimir.setText("Imprimr");
+        Imprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ImprimirActionPerformed(evt);
             }
         });
 
@@ -141,7 +141,7 @@ public class ListadoPacientes extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Imprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
         jPanel4Layout.setVerticalGroup(
@@ -149,7 +149,7 @@ public class ListadoPacientes extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(Imprimir)
                 .addGap(22, 22, 22))
         );
 
@@ -179,21 +179,21 @@ public class ListadoPacientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirActionPerformed
         PacientesInfo pd = new PacientesInfo();
         try{
 
             TablaPacientes.setModel(new javax.swing.table.DefaultTableModel(
                 pd.ListarPacientes(),
                 new String [] {
-                    "Codigo Secuencial", "Nombre", "Email", "Telefono", "Fecha de Nacimiento"
+                    "Codigo de Paciente", "Nombre", "Email", "Telefono", "Fecha de Nacimiento"
                 }
             ));
         }catch(IOException e){
 
             JOptionPane.showMessageDialog(null, "Error en escritura");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ImprimirActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
         Pacientes P = new Pacientes();
@@ -240,9 +240,9 @@ public class ListadoPacientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Imprimir;
     private javax.swing.JButton MenuPrincipal;
     private javax.swing.JTable TablaPacientes;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

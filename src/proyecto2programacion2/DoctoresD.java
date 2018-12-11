@@ -126,6 +126,22 @@ public class DoctoresD {
         return false;
     }
     
+    public boolean DoctorActivo(int codigo)throws IOException{
+    
+        if(findDoctor(codigo)){
+            Doctores.readUTF();
+            Doctores.readUTF();
+            Doctores.readUTF();
+            Doctores.skipBytes(12);
+            if(Doctores.readBoolean()){
+            return true;    
+            }
+            
+        }
+        return false;
+    
+    }
+    
     
     public boolean ModificarHonorario(int codigo, double honorario)throws IOException{
         if(findDoctor(codigo)){
